@@ -32,6 +32,9 @@ snippet spec
 	import spock.lang.Specification
 
 	class ${1:`Filename()`} extends Specification {
+		def "${2:spec story}"() {
+			${3}
+		}
 	}
 snippet main
 	static main(args) {
@@ -78,6 +81,11 @@ snippet each
 snippet times
 	${1:var}.each { ${2:var} ->
 		${3}
+	}
+# metaClass
+snippet mc
+	${1:Class}.metaClass.${2:methodName} = { ${3:args} ->
+		${4}
 	}
 # for grails web framework
 # redirect
