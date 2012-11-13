@@ -1,3 +1,6 @@
+# #!/usr/bin/env groovy
+snippet #!
+	#!/usr/bin/env groovy
 snippet cl
 	class ${1:`Filename()`} {
 		${2}
@@ -25,11 +28,14 @@ snippet tc
 		}
 	}
 # for spock unittest
-snippet sc
-	class ${1:`Filename()`} extends ${2:Specification}
+snippet spec
+	import spock.lang.Specification
+
+	class ${1:`Filename()`} extends Specification {
+	}
 snippet main
 	static main(args) {
-		${1:/* code */}
+		${1:// TODO: generate method stub}
 	}
 snippet pl
 	println "${1}"
@@ -55,6 +61,10 @@ snippet sw
 			${3:statement}
 			break
 	}
+snippet clo
+	def ${1:closureName} = { ${2:var} ->
+		${3}
+	}
 snippet mt
 	def ${1:methodName}(${2:args}) {
 		${3}
@@ -67,5 +77,36 @@ snippet each
 	}
 snippet times
 	${1:var}.each { ${2:var} ->
+		${3}
+	}
+# for grails web framework
+# redirect
+snippet red action
+	redirect(action: ${1:actionName})
+snippet red controller&action
+	redirect(controller: ${1:controllerName}, action: ${2:actionName})
+# render
+snippet rd text
+	render "${1}"
+snippet rd view&model
+	render(view: "${1:viewName}", model: "${2:modelName}")
+# render with contentType json
+snippet rd json
+	render(contentType: 'text/json') {
+		${1}
+	}
+# render with contentType xml
+snippet rd xml
+	render(contentType: 'text/xml') {
+		${1}
+	}
+# withCriteria
+snippet wc
+	${1:DomainClass}.withCriteria {
+		${3}
+	}
+# withTransaction
+snippet wt
+	${1:DomainClass}.withTransaction { ${2:status} ->
 		${3}
 	}
