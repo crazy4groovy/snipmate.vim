@@ -1,0 +1,71 @@
+snippet cl
+	class ${1:`Filename()`} {
+		${2}
+	}
+snippet ci
+	class ${1:`Filename()`} implements ${2:Interface} {
+		${2}
+	}
+snippet clx
+	class ${1:`Filename()`} extends ${2:Class} {
+		${2}
+	}
+# unittest in groovy
+snippet tc
+	class ${1:`Filename()`} extends ${2:GroovyTestCase} {
+		void setUp() {
+			${3}
+		}
+		void tearDown() {
+			${4}
+		}
+
+		void testSomething() {
+			fail("implement me")
+		}
+	}
+# for spock unittest
+snippet sc
+	class ${1:`Filename()`} extends ${2:Specification}
+snippet main
+	static main(args) {
+		${1:/* code */}
+	}
+snippet pl
+	println "${1}"
+snippet if
+	if (${1}) {
+		${2}
+	}
+snippet elif
+	else if (${1}) {
+		${2}
+	}
+snippet el
+	else {
+		${1}
+	}
+snippet for
+	for (${1} in ${2}) {
+		${3}
+	}
+snippet sw
+	switch(${1:val}) {
+		case ${2:val} :
+			${3:statement}
+			break
+	}
+snippet mt
+	def ${1:methodName}(${2:args}) {
+		${3}
+	}
+snippet var
+	def ${1:var} = ${2}
+snippet each
+	${1:var}.each { ${2:var} ->
+		${3}
+	}
+snippet times
+	${1:var}.each { ${2:var} ->
+		${3}
+	}
